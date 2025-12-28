@@ -13,13 +13,25 @@
     <main>
       <h1>Contact</h1>
       <p class="muted">Reach out with a short description of your project, budget, and timeline.</p>
-      <form action="#" class="contact-form">
-        <input type="text" name="name" placeholder="Your name" />
-        <input type="email" name="email" placeholder="Email" />
-        <input type="text" name="company" placeholder="Company (optional)" />
-        <textarea name="message" rows="6" placeholder="Project details and timeline"></textarea>
-        <div><button class="cta" type="submit">Send message</button></div>
+      <form id="contact-form" class="contact-form" data-endpoint="https://formspree.io/f/your-form-id">
+        <label class="sr-only" for="name">Name</label>
+        <input id="name" type="text" name="name" placeholder="Your name" required />
+
+        <label class="sr-only" for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="Email" required />
+
+        <label class="sr-only" for="company">Company</label>
+        <input id="company" type="text" name="company" placeholder="Company (optional)" />
+
+        <label class="sr-only" for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Project details and timeline" required></textarea>
+
+        <div style="display:flex;gap:12px;align-items:center">
+          <button class="cta" type="submit">Send message</button>
+          <div id="contact-status" aria-live="polite" style="color:var(--text-muted)"></div>
+        </div>
       </form>
+      <p class="muted" style="margin-top:12px;font-size:13px">This form uses Formspree. Replace the form's <code>data-endpoint</code> attribute with your Formspree endpoint (see README).</p>
     </main>
 
     <footer>
