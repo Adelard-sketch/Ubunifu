@@ -5,16 +5,16 @@
 }
 
 :root {
-		position: absolute !important; 
-		width: 1px; 
-		height: 1px; 
-		padding: 0; 
-		margin: -1px; 
-		overflow: hidden; 
-		clip: rect(0,0,0,0); 
-		white-space: nowrap; 
-		border: 0;
-	}
+	--bg: #071020; /* dark page background */
+	--card-bg: #0b1220; /* darker card surface */
+	--bg-card: var(--card-bg);
+	--text-dark: #e6eef8; /* primary body text (light on dark) */
+	--text-muted: #9aa4b2; /* secondary text */
+	--accent: #ff751f; /* CTA */
+	--accent-hover: #ff8f47;
+	--primary-blue: #84a7ff; /* lighter blue for headings on dark */
+	--gradient: linear-gradient(135deg, #01338d 0%, #ff751f 100%);
+}
 
 	/* Contact layout */
 	.contact-grid {
@@ -42,17 +42,7 @@
 	#contact-status.success { color: #b7f5c7; }
 	#contact-status.error { color: #ffb3b3; }
 
-	.form-actions { display:flex; gap:12px; align-items:center; margin-top:6px }
-	--bg: #071020; /* dark page background */
-	--card-bg: #0b1220; /* darker card surface */
-	--bg-card: var(--card-bg);
-	--text-dark: #e6eef8; /* primary body text (light on dark) */
-	--text-muted: #9aa4b2; /* secondary text */
-	--accent: #ff751f; /* CTA */
-	--accent-hover: #ff8f47;
-	--primary-blue: #84a7ff; /* lighter blue for headings on dark */
-	--gradient: linear-gradient(135deg, #01338d 0%, #ff751f 100%);
-}
+.form-actions { display:flex; gap:12px; align-items:center; margin-top:6px }
 
 body {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -470,12 +460,19 @@ footer a:hover {
 
 /* Scroll reveal animations */
 .fade-in-section {
-	opacity: 0;
-	transform: translateY(30px);
+	/* Visible by default so pages work when JS is disabled or fetch fails */
+	opacity: 1;
+	transform: none;
 	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.fade-in-section.is-visible {
+/* When JS is enabled we add the `js` class to <html> and enable the reveal animations */
+.js .fade-in-section {
+	opacity: 0;
+	transform: translateY(30px);
+}
+
+.js .fade-in-section.is-visible {
 	opacity: 1;
 	transform: translateY(0);
 }

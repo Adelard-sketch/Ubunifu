@@ -1,5 +1,7 @@
 // Scroll reveal animation for elements with class `fade-in-section`
 (function () {
+  // Signal that JS is enabled so CSS can trigger animations
+  try { document.documentElement.classList.add('js'); } catch (e) {}
   const faders = document.querySelectorAll('.fade-in-section');
 
   function initScrollReveal() {
