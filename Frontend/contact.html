@@ -11,27 +11,48 @@
     <header id="site-header"></header>
 
     <main>
-      <h1>Contact</h1>
-      <p class="muted">Reach out with a short description of your project, budget, and timeline.</p>
-      <form id="contact-form" class="contact-form" data-endpoint="https://formspree.io/f/your-form-id">
-        <label class="sr-only" for="name">Name</label>
-        <input id="name" type="text" name="name" placeholder="Your name" required />
+      <section class="contact-section fade-in-section">
+        <h1>Contact</h1>
+        <p class="muted">Reach out with a short description of your project, budget, and timeline.</p>
 
-        <label class="sr-only" for="email">Email</label>
-        <input id="email" type="email" name="email" placeholder="Email" required />
+        <div class="contact-grid">
+          <aside class="contact-side">
+            <h3>Get in touch</h3>
+            <p class="muted">We're excited to hear about your project. Typical response time is 1–2 business days.</p>
 
-        <label class="sr-only" for="company">Company</label>
-        <input id="company" type="text" name="company" placeholder="Company (optional)" />
+            <ul class="contact-meta">
+              <li><strong>Email:</strong> hello@ubunifu.tech</li>
+              <li><strong>Phone:</strong> +233 24 000 0000</li>
+              <li><strong>Location:</strong> Accra, Ghana</li>
+            </ul>
 
-        <label class="sr-only" for="message">Message</label>
-        <textarea id="message" name="message" rows="6" placeholder="Project details and timeline" required></textarea>
+            <div class="contact-note muted">Prefer a brief message? Use the form and we'll follow up.</div>
+          </aside>
 
-        <div style="display:flex;gap:12px;align-items:center">
-          <button class="cta" type="submit">Send message</button>
-          <div id="contact-status" aria-live="polite" style="color:var(--text-muted)"></div>
+          <div class="contact-right">
+            <form id="contact-form" class="contact-form" data-endpoint="https://formspree.io/f/your-form-id">
+              <label class="sr-only" for="name">Name</label>
+              <input id="name" type="text" name="name" placeholder="Your name" required />
+
+              <label class="sr-only" for="email">Email</label>
+              <input id="email" type="email" name="email" placeholder="Email" required />
+
+              <label class="sr-only" for="company">Company</label>
+              <input id="company" type="text" name="company" placeholder="Company (optional)" />
+
+              <label class="sr-only" for="message">Message</label>
+              <textarea id="message" name="message" rows="6" placeholder="Project details and timeline" required></textarea>
+
+              <div class="form-actions">
+                <button class="cta" type="submit">Send message</button>
+                <div id="contact-status" aria-live="polite" class="contact-status" role="status"></div>
+              </div>
+            </form>
+
+            <p class="muted" style="margin-top:12px;font-size:13px">This form uses Formspree. Replace the form's <code>data-endpoint</code> attribute with your Formspree endpoint (see README).</p>
+          </div>
         </div>
-      </form>
-      <p class="muted" style="margin-top:12px;font-size:13px">This form uses Formspree. Replace the form's <code>data-endpoint</code> attribute with your Formspree endpoint (see README).</p>
+      </section>
     </main>
 
     <footer>
